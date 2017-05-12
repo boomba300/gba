@@ -17,7 +17,7 @@ function GameBoyAdvanceEmulator() {
         "audioBufferSize":20,               //Audio buffer maximum span amount over x interpreter iterations.
         "timerIntervalRate":16,             //How often the emulator core is called into (in milliseconds).
         "emulatorSpeed":5,                  //Speed multiplier of the emulator.
-        "metricCollectionMinimum":30,       //How many cycles to collect before determining speed.
+        "metricCollectionMinimum":6,       //How many cycles to collect before determining speed.
         "dynamicSpeed":false,                 //Whether to actively change the target speed for best user experience.
     }
     this.audioFound = false;                  //Do we have audio output sink found yet?
