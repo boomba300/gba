@@ -15,10 +15,10 @@ function GameBoyAdvanceEmulator() {
         "audioBufferUnderrunLimit":8,       //Audio buffer minimum span amount over x interpreter iterations.
         "audioBufferDynamicLimit":2,        //Audio buffer dynamic minimum span amount over x interpreter iterations.
         "audioBufferSize":20,               //Audio buffer maximum span amount over x interpreter iterations.
-        "timerIntervalRate":16,             //How often the emulator core is called into (in milliseconds).
-        "emulatorSpeed":1,                  //Speed multiplier of the emulator.
+        "timerIntervalRate":30,             //How often the emulator core is called into (in milliseconds).
+        "emulatorSpeed":700,                  //Speed multiplier of the emulator.
         "metricCollectionMinimum":30,       //How many cycles to collect before determining speed.
-        "dynamicSpeed":true,                 //Whether to actively change the target speed for best user experience.
+        "dynamicSpeed":false,                 //Whether to actively change the target speed for best user experience.
     }
     this.audioFound = false;                  //Do we have audio output sink found yet?
     this.loaded = false;                      //Did we initialize IodineGBA?
@@ -41,7 +41,7 @@ function GameBoyAdvanceEmulator() {
     this.clockCyclesSinceStart = 0;           //Clocking hueristics reference
     this.metricCollectionCounted = 0;         //Clocking hueristics reference
     this.metricStart = null;                  //Date object reference.
-    this.dynamicSpeedCounter = 0;             //Rate limiter counter for dynamic speed.
+    this.dynamicSpeedCounter = 20;             //Rate limiter counter for dynamic speed.
     this.audioNumSamplesTotal = 0;            //Buffer size.
     this.calculateTimings();                  //Calculate some multipliers against the core emulator timer.
     this.generateCoreExposed();               //Generate a limit API for the core to call this shell object.
